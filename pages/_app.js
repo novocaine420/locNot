@@ -1,12 +1,16 @@
 import Head from 'next/head';
 import { Provider } from 'react-redux';
+import { useRouter } from 'next/router';
 
 import configureStore from '../isomorphic/store';
 import '../styles/globals.css';
+import Main from '../client/components/main/main';
 
 const store = configureStore();
 
 export default function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
   return (
     <>
       <Provider store={store}>
@@ -27,7 +31,7 @@ export default function MyApp({ Component, pageProps }) {
           <link rel="apple-touch-icon" href="/apple-icon.png" />
           <meta name="theme-color" content="#317EFB" />
         </Head>
-        <Component {...pageProps} />
+        <Main pageProps={pageProps} Component={Component} router={router} />
       </Provider>
     </>
   );
