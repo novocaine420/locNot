@@ -1,0 +1,13 @@
+.tabs {
+  width: 100%;
+  .tabsHeader:global(.MuiPaper-elevation4) {
+    box-shadow: none;
+  }
+  .swipeableViews {
+    margin-top: 10px;
+    .tabPanelBox {
+      padding: 0;
+      background: red;
+    }
+  }
+}

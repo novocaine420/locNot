@@ -28,6 +28,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/no-useless-constructor': ['error'],
+    '@typescript-eslint/no-var-requires': 0,
     'import/extensions': 0,
     'import/prefer-default-export': 0,
     'no-useless-constructor': 'off',
@@ -51,7 +52,7 @@ module.exports = {
     'react/jsx-props-no-spreading': ['error', { custom: 'ignore' }],
     'react/react-in-jsx-scope': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
-    '@typescript-eslint/no-var-requires': 0
+    'react/require-default-props': 0
   },
   settings: {
     'import/resolver': {

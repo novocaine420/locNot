@@ -1,0 +1,15 @@
+.placesCard {
+  width: 100%;
+  .heading {
+    font-size: 1rem;
+    flex-basis: 33.33%;
+    flex-shrink: 0;
+  }
+  .secondaryHeading {
+    font-size: 1rem;
+    color: #000;
+  }
+  .accordionDetails {
+    padding: 0;
+  }
+}
