@@ -44,18 +44,20 @@ module.exports = {
       { components: ['Link'], specialLink: ['hrefLeft', 'hrefRight'], aspects: ['invalidHref', 'preferButton'] }
     ],
     'lines-between-class-members': 0,
-    'no-use-before-define': ['error', { functions: false }],
+    'no-use-before-define': ['off'],
     'prettier/prettier': 'error',
     'react/prop-types': 0,
     'react/display-name': 0,
     'react/jsx-props-no-spreading': ['error', { custom: 'ignore' }],
     'react/react-in-jsx-scope': 0,
-    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }]
+    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
+    '@typescript-eslint/no-var-requires': 0
   },
   settings: {
     'import/resolver': {
-      node: {
-        paths: ['~']
+      alias: {
+        map: [['@client', './client']],
+        extensions: ['.ts', '.d.ts', '.tsx', '.js', '.jsx', '.json']
       }
     }
   }

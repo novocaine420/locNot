@@ -13,25 +13,23 @@
 
 // If the loader is already loaded, just stop.
 if (!self.define) {
-  const singleRequire = name => {
+  const singleRequire = (name) => {
     if (name !== 'require') {
       name = name + '.js';
     }
     let promise = Promise.resolve();
     if (!registry[name]) {
-      
-        promise = new Promise(async resolve => {
-          if ("document" in self) {
-            const script = document.createElement("script");
-            script.src = name;
-            document.head.appendChild(script);
-            script.onload = resolve;
-          } else {
-            importScripts(name);
-            resolve();
-          }
-        });
-      
+      promise = new Promise(async (resolve) => {
+        if ('document' in self) {
+          const script = document.createElement('script');
+          script.src = name;
+          document.head.appendChild(script);
+          script.onload = resolve;
+        } else {
+          importScripts(name);
+          resolve();
+        }
+      });
     }
     return promise.then(() => {
       if (!registry[name]) {
@@ -42,10 +40,9 @@ if (!self.define) {
   };
 
   const require = (names, resolve) => {
-    Promise.all(names.map(singleRequire))
-      .then(modules => resolve(modules.length === 1 ? modules[0] : modules));
+    Promise.all(names.map(singleRequire)).then((modules) => resolve(modules.length === 1 ? modules[0] : modules));
   };
-  
+
   const registry = {
     require: Promise.resolve(require)
   };
@@ -61,19 +58,19 @@ if (!self.define) {
         uri: location.origin + moduleName.slice(1)
       };
       return Promise.all(
-        depsNames.map(depName => {
-          switch(depName) {
-            case "exports":
+        depsNames.map((depName) => {
+          switch (depName) {
+            case 'exports':
               return exports;
-            case "module":
+            case 'module':
               return module;
             default:
               return singleRequire(depName);
           }
         })
-      ).then(deps => {
+      ).then((deps) => {
         const facValue = factory(...deps);
-        if(!exports.default) {
+        if (!exports.default) {
           exports.default = facValue;
         }
         return exports;
@@ -81,97 +78,31 @@ if (!self.define) {
     });
   };
 }
-define("./sw.js",['./workbox-17357acd'], function (workbox) { 'use strict';
+define('./sw.js', ['./workbox-f88dbe3b'], function (workbox) {
+  'use strict';
 
   /**
-  * Welcome to your Workbox-powered service worker!
-  *
-  * You'll need to register this file in your web app.
-  * See https://goo.gl/nhQhGp
-  *
-  * The rest of the code is auto-generated. Please don't update this file
-  * directly; instead, make changes to your Workbox build configuration
-  * and re-run your build process.
-  * See https://goo.gl/2aRDsh
-  */
+   * Welcome to your Workbox-powered service worker!
+   *
+   * You'll need to register this file in your web app.
+   * See https://goo.gl/nhQhGp
+   *
+   * The rest of the code is auto-generated. Please don't update this file
+   * directly; instead, make changes to your Workbox build configuration
+   * and re-run your build process.
+   * See https://goo.gl/2aRDsh
+   */
 
   importScripts();
   workbox.skipWaiting();
   workbox.clientsClaim();
-  workbox.registerRoute("/", new workbox.NetworkFirst({
-    "cacheName": "start-url",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 1,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/^https:\/\/fonts\.(?:googleapis|gstatic)\.com\/.*/i, new workbox.CacheFirst({
-    "cacheName": "google-fonts",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 4,
-      maxAgeSeconds: 31536000,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i, new workbox.StaleWhileRevalidate({
-    "cacheName": "static-font-assets",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 4,
-      maxAgeSeconds: 604800,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i, new workbox.StaleWhileRevalidate({
-    "cacheName": "static-image-assets",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 64,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/\.(?:js)$/i, new workbox.StaleWhileRevalidate({
-    "cacheName": "static-js-assets",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 32,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/\.(?:css|less)$/i, new workbox.StaleWhileRevalidate({
-    "cacheName": "static-style-assets",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 32,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/\.(?:json|xml|csv)$/i, new workbox.NetworkFirst({
-    "cacheName": "static-data-assets",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 32,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/\/api\/.*$/i, new workbox.NetworkFirst({
-    "cacheName": "apis",
-    "networkTimeoutSeconds": 10,
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 16,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/.*/i, new workbox.NetworkFirst({
-    "cacheName": "others",
-    "networkTimeoutSeconds": 10,
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 32,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-
+  workbox.registerRoute(
+    /.*/i,
+    new workbox.NetworkOnly({
+      cacheName: 'dev',
+      plugins: []
+    }),
+    'GET'
+  );
 });
 //# sourceMappingURL=sw.js.map
