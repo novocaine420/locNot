@@ -7,11 +7,12 @@ import Drawer from '@client/components/drawer/drawer';
 const paths: { [key: string]: string } = {
   '/': 'LocNot',
   '/places': 'My Places',
-  '/firends': 'My Friends',
+  '/friends': 'My Friends',
   '/reminders': 'Reminders',
   '/mentions': 'Mentions',
   '/invite': 'Invite',
-  '/settings': 'Settings'
+  '/settings': 'Settings',
+  '/places/create': 'Create New Place'
 };
 
 const Main = ({ Component, pageProps, router }: AppPropsType) => {

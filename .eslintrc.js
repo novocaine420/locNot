@@ -57,7 +57,10 @@ module.exports = {
   settings: {
     'import/resolver': {
       alias: {
-        map: [['@client', './client']],
+        map: [
+          ['@client', './client'],
+          ['@isomorphic', './isomorphic']
+        ],
         extensions: ['.ts', '.d.ts', '.tsx', '.js', '.jsx', '.json']
       }
     }

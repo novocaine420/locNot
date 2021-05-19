@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2488fdf4-06bb-4e1c-9d0b-a105b3b142e9" name="Default Changelist" comment="feat: add places pages with maps, updated eslint">
-      <change afterPath="$PROJECT_DIR$/client/components/drawer/drawer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/drawer/styles.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/header/header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/header/styles.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/main/main.tsx" afterDir="false" />
+    <list default="true" id="2488fdf4-06bb-4e1c-9d0b-a105b3b142e9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/components/date-picker/date-picker.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/step-progress-bar/step-progress-bar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/step-progress-bar/styles.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/text-input/styles.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/text-input/text-input.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helpers/storageHelpers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/isomorphic/store/place.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/isomorphic/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/google-map/google-map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/google-map/google-map.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/header/header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/main/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/main/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/initial-states.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/initial-states.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/places.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/places.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/places/create.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/places/create.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/places/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/places/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -53,6 +66,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/isomorphic" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="scratch.es6" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$APPLICATION_CONFIG_DIR$/scratches/scratch.es6" working-dir="$PROJECT_DIR$">
@@ -84,7 +100,8 @@
       <workItem from="1620573608400" duration="1613000" />
       <workItem from="1620761977130" duration="347000" />
       <workItem from="1620846855761" duration="4795000" />
-      <workItem from="1620912280051" duration="30290000" />
+      <workItem from="1620912280051" duration="46851000" />
+      <workItem from="1621427465585" duration="432000" />
     </task>
     <task id="LOCAL-00001" summary="feat: configured environment">
       <created>1620156478019</created>
@@ -114,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621252996222</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: add main layout, header and drawer">
+      <created>1621275832083</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1621275832083</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +160,8 @@
     <MESSAGE value="feat: configured environment" />
     <MESSAGE value="feat: configure redux, fix eslint errors, update react version" />
     <MESSAGE value="feat: add places pages with maps, updated eslint" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add places pages with maps, updated eslint" />
+    <MESSAGE value="feat: add main layout, header and drawer" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add main layout, header and drawer" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

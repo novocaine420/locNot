@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -6,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
+import AddIcon from '@material-ui/icons/Add';
 
 import styles from './styles.module.scss';
 
@@ -55,6 +57,19 @@ export default function Header({ title, onMenuOpen }: HeaderProps) {
             <Typography variant="h6" className={styles.title}>
               {title}
             </Typography>
+            <Link href="/places/create">
+              <a>
+                <IconButton
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={() => null}
+                  color="inherit"
+                >
+                  <AddIcon />
+                </IconButton>
+              </a>
+            </Link>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
