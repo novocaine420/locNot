@@ -11,7 +11,7 @@ const rootReducer = combineReducers<RootState>({
   place: placeReducer
 });
 
-export default function configureStore(preloadedState) {
+export default function configureStore(preloadedState: RootState) {
   const middlewares = [thunkMiddleware];
   const middlewareEnhancer = applyMiddleware(...middlewares);
 

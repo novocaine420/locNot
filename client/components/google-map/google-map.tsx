@@ -8,7 +8,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 type MapProps = {
   location?: Location;
   zoom?: number;
-  onClick?: () => void;
+  onClick?: (location: Location) => void;
 };
 
 const defaultLocation = {

@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import StepProgressBar from '@client/components/step-progress-bar/step-progress-bar';
 import GoogleMap from '@client/components/google-map/google-map';
 import { RootState } from '@isomorphic/store/types';
-import { Place } from '@isomorphic/types';
+import { Location, Place } from '@isomorphic/types';
 import { setPlace } from '@isomorphic/store/place';
 import TextInput from '@client/components/text-input/text-input';
 import DateAndTimePicker from '@client/components/date-picker/date-picker';
 import { addPlace } from '@isomorphic/store/places';
+import AddPictureBlock from '@client/components/add-picture-block/add-picture-block';
 
 const steps = ['Select on map', 'Add content', 'Invite people', 'Choose time'];
 
@@ -16,12 +17,16 @@ const CreatePlace = () => {
   const place = useSelector<RootState, Place>((state) => state.place.newPlace);
   const dispatch = useDispatch();
 
-  const onMapClick = (data) => {
+  const onMapClick = (data: Location) => {
     dispatch(setPlace({ ...place, location: { lat: data.lat, lng: data.lng } }));
   };
 
   const onTextChange = (field: string) => (text: string) => {
     dispatch(setPlace({ ...place, [field]: text }));
+  };
+
+  const onDropPicture = (img: string) => {
+    dispatch(setPlace({ ...place, content: [...place.content, img] }));
   };
 
   const getStepContent = (idx: number) => {
@@ -36,6 +41,7 @@ const CreatePlace = () => {
       case 1:
         return (
           <div>
+            <AddPictureBlock onDropPicture={onDropPicture} />
             <TextInput label="Message" value={place.message} onChange={onTextChange('message')} multiline />
           </div>
         );

@@ -25,6 +25,8 @@ const List = ({ list }: ListProps) => {
             title={item.title}
             description={item.description}
             location={item.location}
+            content={item.content}
+            message={item.message}
             expanded={expanded === item.id}
             handleChange={handleChange(item.id)}
           />

@@ -8,6 +8,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Tabs from '@client/components/tabs/tabs';
 import GoogleMap from '../google-map/google-map';
 import styles from './styles.module.scss';
+import ContentBlock from '@client/components/content-block/content-block';
 
 type PlaceCardProps = {
   id: number;
@@ -17,11 +18,22 @@ type PlaceCardProps = {
     lat: number;
     lng: number;
   };
+  content: string[];
+  message: string;
   expanded: boolean;
   handleChange: (event: React.ChangeEvent<{}>, isExpanded: boolean) => void;
 };
 
-export default function PlaceCard({ id, title, description, location, expanded, handleChange }: PlaceCardProps) {
+export default function PlaceCard({
+  id,
+  title,
+  description,
+  location,
+  expanded,
+  handleChange,
+  content,
+  message
+}: PlaceCardProps) {
   const tabs = [
     {
       title: 'Info',
@@ -29,7 +41,7 @@ export default function PlaceCard({ id, title, description, location, expanded, 
     },
     {
       title: 'Content',
-      content: <div>Content Two</div>
+      content: <ContentBlock images={content} message={message} />
     },
     {
       title: 'People',

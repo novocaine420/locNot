@@ -5,9 +5,9 @@ export type Location = {
 
 export type Place = {
   id?: string;
-  name?: string;
+  name: string;
   location: Location;
-  content: [];
+  content: string[];
   date: Date;
   message: string;
   peoples: string;
