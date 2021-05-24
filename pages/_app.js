@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
 import { useRouter } from 'next/router';
@@ -10,6 +11,22 @@ const store = configureStore();
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
+
+  // useEffect(() => {
+  //   if ('serviceWorker' in navigator) {
+  //     // Use the window load event to keep the page load performant
+  //     window.addEventListener('load', () => {
+  //       navigator.serviceWorker
+  //         .register('/sw.js')
+  //         .then(function () {
+  //           console.log('SW registered');
+  //         })
+  //         .catch(function (err) {
+  //           console.log(err);
+  //         });
+  //     });
+  //   }
+  // }, []);
 
   return (
     <>

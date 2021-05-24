@@ -3,7 +3,11 @@ import GoogleMapReact from 'google-map-react';
 
 import { Location } from '@isomorphic/types';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+type AnyReactComponentProps = {
+  text: string;
+};
+
+const AnyReactComponent = ({ text }: AnyReactComponentProps) => <div>{text}</div>;
 
 type MapProps = {
   location?: Location;
@@ -19,9 +23,12 @@ const defaultLocation = {
 const GoogleMap = ({ location = defaultLocation, zoom = 17, onClick }: MapProps) => {
   return (
     <div style={{ height: '320px', width: '100%' }}>
-      <GoogleMapReact bootstrapURLKeys={{ key: '' }} defaultCenter={location} defaultZoom={zoom} onClick={onClick}>
-        <AnyReactComponent lat={location.lat} lng={location.lng} text="My Marker" />
-      </GoogleMapReact>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: '' }}
+        defaultCenter={location}
+        defaultZoom={zoom}
+        onClick={onClick}
+      ></GoogleMapReact>
     </div>
   );
 };

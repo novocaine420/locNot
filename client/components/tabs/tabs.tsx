@@ -70,11 +70,10 @@ export default function FullWidthTabs({ tabs, withIndicator = false, onTabChange
           onChange={handleChange}
           indicatorColor={withIndicator ? 'secondary' : ''}
           textColor="secondary"
-          variant={variant}
           aria-label="full width tabs example"
         >
-          {tabs.map((tab, idx) => (
-            <Tab label={tab.title} {...a11yProps(idx)} />
+          {tabs.map((tab: any, idx: number) => (
+            <Tab key={tab.id} label={tab.title} {...a11yProps(idx)} />
           ))}
         </Tabs>
       </AppBar>
@@ -84,8 +83,8 @@ export default function FullWidthTabs({ tabs, withIndicator = false, onTabChange
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        {tabs.map((tab, idx) => (
-          <TabPanel value={value} index={idx} dir={theme.direction}>
+        {tabs.map((tab: any, idx: number) => (
+          <TabPanel key={tab.id} value={value} index={idx} dir={theme.direction}>
             {tab.content}
           </TabPanel>
         ))}
