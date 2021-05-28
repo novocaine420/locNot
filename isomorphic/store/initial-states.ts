@@ -1,14 +1,13 @@
 import { PlacesState, PlaceState } from './types';
-import { findInStorage } from '../../helpers/storageHelpers';
 
 export const initialPlacesState: PlacesState = {
-  data: global.window ? findInStorage('places') : [],
+  data: [],
   loading: false,
   error: null
 };
 
 export const initialPlaceState: PlaceState = {
-  data: [],
+  data: {},
   newPlace: {
     name: '',
     location: {

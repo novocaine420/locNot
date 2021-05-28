@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2488fdf4-06bb-4e1c-9d0b-a105b3b142e9" name="Default Changelist" comment="feat: add content tab and uploading picture functionality, fix types">
-      <change afterPath="$PROJECT_DIR$/public/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/google-map/google-map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/google-map/google-map.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/tabs/tabs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/tabs/tabs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/isomorphic/store/places.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/places.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/initial-states.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/initial-states.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/place.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/place.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/places/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/places/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/sw.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/workbox-f88dbe3b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/places/create.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/places/create.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +16,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="JavaScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -112,7 +103,7 @@
       <workItem from="1620846855761" duration="4795000" />
       <workItem from="1620912280051" duration="46851000" />
       <workItem from="1621427465585" duration="11505000" />
-      <workItem from="1621524398738" duration="13553000" />
+      <workItem from="1621524398738" duration="41650000" />
     </task>
     <task id="LOCAL-00001" summary="feat: configured environment">
       <created>1620156478019</created>
@@ -163,7 +154,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621522222419</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: update next-pwa, add custom sw, remove unneeded code">
+      <created>1621851015355</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621851015355</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: add id page, simple card, connect firebase db, add idb methods">
+      <created>1622214926986</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1622214926986</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,7 +193,9 @@
     <MESSAGE value="feat: add main layout, header and drawer" />
     <MESSAGE value="feat: add create place page, save places in localstorage" />
     <MESSAGE value="feat: add content tab and uploading picture functionality, fix types" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add content tab and uploading picture functionality, fix types" />
+    <MESSAGE value="feat: update next-pwa, add custom sw, remove unneeded code" />
+    <MESSAGE value="feat: add id page, simple card, connect firebase db, add idb methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add id page, simple card, connect firebase db, add idb methods" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

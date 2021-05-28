@@ -1,8 +1,9 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import MUList from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 
-import PlaceCard from '@client/components/place-card/place-card';
+import SimplePlaceCard from '@client/components/simple-place-card/simple-place-card';
 import styles from './styles.module.scss';
 
 type ListProps = {
@@ -10,25 +11,22 @@ type ListProps = {
 };
 
 const List = ({ list }: ListProps) => {
-  const [expanded, setExpanded] = React.useState<number | false>(false);
+  const router = useRouter();
 
-  const handleChange = (id: number) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
-    setExpanded(isExpanded ? id : false);
+  const handleChange = (id: string) => () => {
+    router.push(`/places/${id}`);
   };
 
   return (
     <MUList className={styles.list} subheader={<li />}>
       {list.map((item: any) => (
         <ListItem key={`item-${item.id}`}>
-          <PlaceCard
-            id={item.id}
+          <SimplePlaceCard
             title={item.title}
             description={item.description}
-            location={item.location}
-            content={item.content}
-            message={item.message}
-            expanded={expanded === item.id}
-            handleChange={handleChange(item.id)}
+            imageSrc={item.content[0]}
+            onOpen={handleChange(item.id)}
+            onDelete={handleChange(item.id)}
           />
         </ListItem>
       ))}

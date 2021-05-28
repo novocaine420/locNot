@@ -7,6 +7,7 @@ import Drawer from '@client/components/drawer/drawer';
 const paths: { [key: string]: string } = {
   '/': 'LocNot',
   '/places': 'My Places',
+  '/places/[id]': 'Place',
   '/friends': 'My Friends',
   '/reminders': 'Reminders',
   '/mentions': 'Mentions',

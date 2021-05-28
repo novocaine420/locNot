@@ -1,11 +1,12 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import List from '@client/components/list/list';
 import Tabs from '@client/components/tabs/tabs';
 import styles from './styles.module.scss';
 import { RootState } from '@isomorphic/store/types';
 import { Place } from '@isomorphic/types';
+import { fetchPlaces } from '@isomorphic/store/places';
 
 const tabs = [
   {
@@ -27,17 +28,22 @@ const tabs = [
 ];
 
 const Index = () => {
-  const [tabIndex, setTabIndex] = useState(0);
   const places = useSelector<RootState, Place[]>((state) => state.places.data);
 
-  useEffect(() => {
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchPlaces());
   }, []);
+
+  const onTabChange = (idx: number) => {
+    console.log(idx);
+  };
 
   const tabsData = useMemo(() => {
     const list = places.map((place) => ({ ...place, title: place.name, description: 'description' }));
     return tabs.map((item) => ({ ...item, content: <List list={list} /> }));
-  }, [tabIndex]);
+  }, [places]);
 
   return (
     <div className={styles.places}>

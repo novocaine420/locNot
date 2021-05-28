@@ -11,7 +11,7 @@ type ContentBlockProps = {
 const ContentBlock = ({ images, message }: ContentBlockProps) => {
   return (
     <div>
-      {images.map((image: string, idx: number) => (
+      {images?.map((image: string, idx: number) => (
         <img className={styles.picture} src={image} key={idx} alt="" />
       ))}
       <Typography variant="h6" className={styles.message}>

@@ -70,6 +70,7 @@ export default function FullWidthTabs({ tabs, withIndicator = false, onTabChange
           onChange={handleChange}
           indicatorColor={withIndicator ? 'secondary' : ''}
           textColor="secondary"
+          variant={variant}
           aria-label="full width tabs example"
         >
           {tabs.map((tab: any, idx: number) => (
