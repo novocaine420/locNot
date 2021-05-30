@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 
 import StepProgressBar from '@client/components/step-progress-bar/step-progress-bar';
@@ -8,12 +9,13 @@ import { Location, Place } from '@isomorphic/types';
 import { setPlace } from '@isomorphic/store/place';
 import TextInput from '@client/components/text-input/text-input';
 import DateAndTimePicker from '@client/components/date-picker/date-picker';
-import { addPlace } from '@isomorphic/store/places';
+import { addPlace } from '@isomorphic/store/place';
 import AddPictureBlock from '@client/components/add-picture-block/add-picture-block';
 
 const steps = ['Select on map', 'Add content', 'Invite people', 'Choose time'];
 
 const CreatePlace = () => {
+  const router = useRouter();
   const place = useSelector<RootState, Place>((state) => state.place.newPlace);
   const dispatch = useDispatch();
 
@@ -28,6 +30,12 @@ const CreatePlace = () => {
   const onDropPicture = (img: string) => {
     dispatch(setPlace({ ...place, content: [...place.content, img] }));
   };
+
+  useEffect(() => {
+    if (place.id) {
+      router.push(`/places/${place.id}`);
+    }
+  }, [place.id]);
 
   const getStepContent = (idx: number) => {
     switch (idx) {
@@ -68,8 +76,7 @@ const CreatePlace = () => {
   };
 
   const onSubmit = () => {
-    const id = Date.now().toString();
-    dispatch(addPlace({ ...place, id }));
+    dispatch(addPlace(place));
   };
 
   return (

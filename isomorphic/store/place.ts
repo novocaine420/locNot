@@ -10,7 +10,7 @@ export const PLACE_START_FETCHING = 'place/startFetching';
 export const SET_PLACE = 'place/setPlace';
 export const PLACE_SET_ERROR = 'place/setError';
 
-const db = firebase.database();
+const db = firebase.database().ref('places');
 
 interface PlacesLoadedAction {
   type: typeof PLACE_LOADED;
@@ -35,31 +35,46 @@ export type PlacesActions = PlacesLoadedAction | PlacesStartFetchingAction | Set
 
 export const fetchPlace = (id: string) => async (dispatch: Dispatch) => {
   dispatch({ type: PLACE_START_FETCHING });
-  try {
-    db.ref('places')
-      .child(id)
-      .on('value', (snapshot) => {
-        dispatch({
-          type: PLACE_LOADED,
-          payload: {
-            data: snapshot.val()
-          }
-        });
-      });
-  } catch (error) {
+
+  db.child(id).on('value', (snapshot) => {
     dispatch({
-      type: PLACE_SET_ERROR,
+      type: PLACE_LOADED,
       payload: {
-        error
+        data: snapshot.val()
       }
     });
-  }
+  });
 };
 
 export const setPlace = (data: Place) => ({
   type: SET_PLACE,
   payload: data
 });
+
+export const addPlace = (place: Place) => async (dispatch: Dispatch) => {
+  dispatch({ type: PLACE_START_FETCHING });
+  const newPlaceRef = firebase.database().ref('places').push();
+  const id = newPlaceRef?.key || '';
+  const newPlace = { ...place, id };
+
+  db.child(id)
+    .set(newPlace, (error) => {
+      dispatch({
+        type: PLACE_SET_ERROR,
+        payload: {
+          error
+        }
+      });
+    })
+    .then(() => {
+      dispatch({
+        type: PLACE_LOADED,
+        payload: {
+          newPlace
+        }
+      });
+    });
+};
 
 export const placeReducer = (state: PlaceState = initialPlaceState, action: PlacesActions) => {
   switch (action.type) {

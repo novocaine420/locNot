@@ -4,7 +4,7 @@ import { PlacesState } from './types';
 import { initialPlacesState } from './initial-states';
 import { firebase } from '../../helpers/firebase-api';
 
-const db = firebase.database();
+const db = firebase.database().ref('places');
 
 export const PLACES_LOADED = 'places/loaded';
 export const PLACES_START_FETCHING = 'places/startFetching';
@@ -29,24 +29,28 @@ export type PlacesActions = PlacesLoadedAction | PlacesStartFetchingAction | Pla
 export const fetchPlaces = () => async (dispatch: Dispatch) => {
   dispatch({ type: PLACES_START_FETCHING });
 
-  try {
-    db.ref('places').on('value', (snapshot) => {
-      const places = Object.entries(snapshot.val()).map((obj) => obj[1]);
+  db.on('value', (snapshot) => {
+    const places = Object.entries(snapshot.val()).map((obj) => obj[1]);
+    dispatch({
+      type: PLACES_LOADED,
+      payload: {
+        data: places
+      }
+    });
+  });
+};
+
+export const deletePlace = (id: string) => async (dispatch: Dispatch) => {
+  db.child(id)
+    .remove()
+    .catch((err) => {
       dispatch({
-        type: PLACES_LOADED,
+        type: PLACES_SET_ERROR,
         payload: {
-          data: places
+          err
         }
       });
     });
-  } catch (error) {
-    dispatch({
-      type: PLACES_SET_ERROR,
-      payload: {
-        error
-      }
-    });
-  }
 };
 
 export const placesReducer = (state: PlacesState = initialPlacesState, action: PlacesActions) => {

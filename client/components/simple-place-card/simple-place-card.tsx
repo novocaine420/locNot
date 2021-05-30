@@ -20,7 +20,7 @@ type SimplePlaceCardProps = {
 const SimplePlaceCard = ({ imageSrc, title, description, onOpen, onDelete }: SimplePlaceCardProps) => {
   return (
     <Card className={styles.placeCard}>
-      <CardActionArea>
+      <CardActionArea onClick={onOpen}>
         <CardMedia className={styles.media} image={imageSrc} title={title} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
