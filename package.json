@@ -16,6 +16,7 @@
     "idb": "^6.1.1",
     "lodash": "^4.17.21",
     "material-ui-dropzone": "^3.5.0",
+    "moment": "^2.29.1",
     "next": "latest",
     "next-pwa": "^5.2.21",
     "react": "^17.0.2",

@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2488fdf4-06bb-4e1c-9d0b-a105b3b142e9" name="Default Changelist" comment="feat: add content tab and uploading picture functionality, fix types">
+    <list default="true" id="2488fdf4-06bb-4e1c-9d0b-a105b3b142e9" name="Default Changelist" comment="feat: add reminders pages, change navigation, pass date from redux,">
+      <change afterPath="$PROJECT_DIR$/isomorphic/store/reminders.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/reminders/[id].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/reminders/create.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/reminders/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/reminders/styles.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/date-picker/date-picker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/date-picker/date-picker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/header/header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/list/list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/list/list.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/main/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/main/main.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/simple-place-card/simple-place-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/simple-place-card/simple-place-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/simple-place-card/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/simple-place-card/styles.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/initial-states.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/initial-states.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/isomorphic/store/place.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/place.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/isomorphic/store/places.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/places.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/places/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/places/[id].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/places/create.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/places/create.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/places/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/places/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,12 +35,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -107,6 +127,7 @@
       <workItem from="1620912280051" duration="46851000" />
       <workItem from="1621427465585" duration="11505000" />
       <workItem from="1621524398738" duration="47868000" />
+      <workItem from="1622557066128" duration="13073000" />
     </task>
     <task id="LOCAL-00001" summary="feat: configured environment">
       <created>1620156478019</created>

@@ -19,9 +19,10 @@ const List = ({ list, onItemOpen, onItemDelete }: ListProps) => {
           <SimplePlaceCard
             title={item.title}
             description={item.description}
-            imageSrc={item.content[0]}
+            imageSrc={item.picture}
             onOpen={onItemOpen(item.id)}
             onDelete={onItemDelete(item.id)}
+            date={item.date}
           />
         </ListItem>
       ))}

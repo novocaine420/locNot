@@ -15,19 +15,25 @@ type SimplePlaceCardProps = {
   description: string;
   onOpen: () => void;
   onDelete: () => void;
+  date: string;
 };
 
-const SimplePlaceCard = ({ imageSrc, title, description, onOpen, onDelete }: SimplePlaceCardProps) => {
+const SimplePlaceCard = ({ imageSrc, title, description, date, onOpen, onDelete }: SimplePlaceCardProps) => {
   return (
     <Card className={styles.placeCard}>
       <CardActionArea onClick={onOpen}>
         <CardMedia className={styles.media} image={imageSrc} title={title} />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {description}
+        <CardContent className={styles.placeCardContent}>
+          <div>
+            <Typography gutterBottom variant="h5" component="h2">
+              {title}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {description}
+            </Typography>
+          </div>
+          <Typography className={styles.date} gutterBottom variant="body2" component="span">
+            {date}
           </Typography>
         </CardContent>
       </CardActionArea>

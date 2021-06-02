@@ -2,13 +2,15 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+import { RootState } from '@isomorphic/store/types';
 import { placesReducer } from '@isomorphic/store/places';
 import { placeReducer } from '@isomorphic/store/place';
-import { RootState } from '@isomorphic/store/types';
+import { remindersReducer } from '@isomorphic/store/reminders';
 
 const rootReducer = combineReducers<RootState>({
   places: placesReducer,
-  place: placeReducer
+  place: placeReducer,
+  reminders: remindersReducer
 });
 
 export default function configureStore(preloadedState: RootState) {

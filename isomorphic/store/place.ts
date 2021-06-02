@@ -53,7 +53,7 @@ export const setPlace = (data: Place) => ({
 
 export const addPlace = (place: Place) => async (dispatch: Dispatch) => {
   dispatch({ type: PLACE_START_FETCHING });
-  const newPlaceRef = firebase.database().ref('places').push();
+  const newPlaceRef = db.push();
   const id = newPlaceRef?.key || '';
   const newPlace = { ...place, id };
 
