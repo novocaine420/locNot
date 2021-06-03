@@ -21,10 +21,10 @@ const Index = ({ id, setPageTitle }: PlaceProps) => {
   }, []);
 
   useEffect(() => {
-    if (reminder.title) {
+    if (reminder?.title) {
       setPageTitle(reminder.title);
     }
-  }, [reminder.title]);
+  }, [reminder?.title]);
 
   return (
     <div className={styles.reminder}>

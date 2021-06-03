@@ -3,10 +3,7 @@ import { NextRouter } from 'next/router';
 
 import { RemindersState } from './types';
 import { initialRemindersState } from './initial-states';
-import { firebase } from '../../helpers/firebase-api';
 import { Reminder } from '@isomorphic/types';
-
-const db = firebase.database().ref('reminders');
 
 const REMINDERS_LOADED = 'reminders/loaded';
 const REMINDERS_START_FETCHING = 'reminders/startFetching';
@@ -48,27 +45,31 @@ export type RemindersActions =
 export const fetchReminders = () => async (dispatch: Dispatch) => {
   dispatch({ type: REMINDERS_START_FETCHING });
 
-  db.on('value', (snapshot) => {
-    const reminders = Object.entries(snapshot.val()).map((obj) => obj[1]);
-    dispatch({
-      type: REMINDERS_LOADED,
-      payload: {
-        list: reminders
-      }
-    });
+  const data = await fetch('https://locnot-e3821-default-rtdb.firebaseio.com/reminders.json').then((response) =>
+    response.json()
+  );
+  const reminders = Object.entries(data).map((obj) => Object.assign(obj[1], { id: obj[0] }));
+
+  dispatch({
+    type: REMINDERS_LOADED,
+    payload: {
+      list: reminders
+    }
   });
 };
 
 export const fetchReminder = (id: string) => async (dispatch: Dispatch) => {
   dispatch({ type: REMINDERS_START_FETCHING });
 
-  db.child(id).on('value', (snapshot) => {
-    dispatch({
-      type: REMINDERS_LOADED,
-      payload: {
-        data: snapshot.val()
-      }
-    });
+  const data = await fetch(`https://locnot-e3821-default-rtdb.firebaseio.com/reminders/${id}.json`).then((response) =>
+    response.json()
+  );
+
+  dispatch({
+    type: REMINDERS_LOADED,
+    payload: {
+      data
+    }
   });
 };
 
@@ -79,33 +80,21 @@ export const setReminder = (data: Reminder) => ({
 
 export const addReminder = (reminder: Reminder, router: NextRouter) => async (dispatch: Dispatch) => {
   dispatch({ type: REMINDERS_START_FETCHING });
-  const newReminderRef = db.push();
-  const id = newReminderRef?.key || '';
-  const newReminder = { ...reminder, id };
 
-  db.child(id)
-    .set(newReminder, (error) => {
-      dispatch({
-        type: REMINDERS_SET_ERROR,
-        payload: {
-          error
-        }
-      });
-    })
-    .then(() => {
+  await fetch(`https://locnot-e3821-default-rtdb.firebaseio.com/reminders.json`, {
+    method: 'POST',
+    body: JSON.stringify(reminder)
+  })
+    .then((response) => response.json())
+    .then(({ name }) => {
       dispatch({
         type: ADD_REMINDER,
         payload: {
-          data: newReminder
+          data: { ...reminder, id: name }
         }
       });
-      router.push(`/reminders/${id}`);
-    });
-};
-
-export const deleteReminder = (id: string) => async (dispatch: Dispatch) => {
-  db.child(id)
-    .remove()
+      router.push(`/reminders/${name}`);
+    })
     .catch((err) => {
       dispatch({
         type: REMINDERS_SET_ERROR,
@@ -114,6 +103,19 @@ export const deleteReminder = (id: string) => async (dispatch: Dispatch) => {
         }
       });
     });
+};
+
+export const deleteReminder = (id: string) => async (dispatch: Dispatch) => {
+  await fetch(`https://locnot-e3821-default-rtdb.firebaseio.com/reminders/${id}.json`, {
+    method: 'DELETE'
+  }).catch((err) => {
+    dispatch({
+      type: REMINDERS_SET_ERROR,
+      payload: {
+        err
+      }
+    });
+  });
 };
 
 export const remindersReducer = (state: RemindersState = initialRemindersState, action: RemindersActions) => {

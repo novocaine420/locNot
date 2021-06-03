@@ -45,7 +45,7 @@ type TabsProps = {
   tabs: any;
   withIndicator?: boolean;
   onTabChange: (idx: number) => void;
-  variant: string;
+  variant: 'scrollable' | 'standard' | 'fullWidth' | undefined;
 };
 
 export default function FullWidthTabs({ tabs, withIndicator = false, onTabChange, variant }: TabsProps) {
@@ -68,7 +68,7 @@ export default function FullWidthTabs({ tabs, withIndicator = false, onTabChange
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor={withIndicator ? 'secondary' : ''}
+          indicatorColor={withIndicator ? 'secondary' : undefined}
           textColor="secondary"
           variant={variant}
           aria-label="full width tabs example"
