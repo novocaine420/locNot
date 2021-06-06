@@ -20,6 +20,16 @@ export default function Home() {
   const [subscription, setSubscription] = useState(null);
   const [registration, setRegistration] = useState(null);
 
+  const askForNotificationPermission = async (reg) => {
+    const sub = await reg.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: base64ToUint8Array(process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY)
+    });
+    // TODO: you should call your API to save subscription data on server in order to send web push notification from server
+    setSubscription(sub);
+    setIsSubscribed(true);
+  };
+
   useEffect(() => {
     if (typeof window !== 'undefined' && 'serviceWorker' in navigator && window.workbox !== undefined) {
       // run only in browser
@@ -31,30 +41,33 @@ export default function Home() {
           }
         });
         setRegistration(reg);
+        askForNotificationPermission(reg).catch((err) => console.error(err));
       });
     }
   }, []);
 
   const subscribeButtonOnClick = async (event) => {
-    event.preventDefault();
-    const sub = await registration.pushManager.subscribe({
-      userVisibleOnly: true,
-      applicationServerKey: base64ToUint8Array(process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY)
-    });
-    // TODO: you should call your API to save subscription data on server in order to send web push notification from server
-    setSubscription(sub);
-    setIsSubscribed(true);
-    console.log('web push subscribed!');
-    console.log(sub);
+    event?.preventDefault();
+    try {
+      await askForNotificationPermission(registration);
+      console.log('web push subscribed!');
+      console.log(subscription);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const unsubscribeButtonOnClick = async (event) => {
     event.preventDefault();
-    await subscription.unsubscribe();
-    // TODO: you should call your API to delete or invalidate subscription data on server
-    setSubscription(null);
-    setIsSubscribed(false);
-    console.log('web push unsubscribed!');
+    try {
+      await subscription.unsubscribe();
+      // TODO: you should call your API to delete or invalidate subscription data on server
+      setSubscription(null);
+      setIsSubscribed(false);
+      console.log('web push unsubscribed!');
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const sendNotificationButtonOnClick = async (event) => {
@@ -63,17 +76,20 @@ export default function Home() {
       console.error('web push not subscribed');
       return;
     }
-
-    await fetch('/api/notification', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        subscription,
-        message: 'hello from client!'
-      })
-    });
+    try {
+      await fetch('/api/notification', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          subscription,
+          message: 'hello from client!'
+        })
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
