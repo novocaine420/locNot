@@ -1,3 +1,5 @@
+import { NextApiRequest, NextApiResponse } from 'next';
+
 const webPush = require('web-push');
 
 webPush.setVapidDetails(
@@ -6,16 +8,16 @@ webPush.setVapidDetails(
   process.env.WEB_PUSH_PRIVATE_KEY
 );
 
-export default (req, res) => {
-  if (req.method == 'POST') {
+export default (req: NextApiRequest, res: NextApiResponse) => {
+  if (req.method === 'POST') {
     const { subscription, message } = req.body;
 
     webPush
-      .sendNotification(subscription, JSON.stringify({ title: 'Hello Web Push', message }))
-      .then((response) => {
+      .sendNotification(subscription, JSON.stringify({ title: 'LocNot', message }))
+      .then((response: any) => {
         res.writeHead(response.statusCode, response.headers).end(response.body);
       })
-      .catch((err) => {
+      .catch((err: any) => {
         if ('statusCode' in err) {
           res.writeHead(err.statusCode, err.headers).end(err.body);
         } else {
