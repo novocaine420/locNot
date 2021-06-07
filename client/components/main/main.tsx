@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { AppPropsType } from 'next/dist/next-server/lib/utils';
+import { useDispatch } from 'react-redux';
 
 import Header from '@client/components/header/header';
 import Drawer from '@client/components/drawer/drawer';
+import { getLocation } from '@isomorphic/store/location';
 
 const paths: { [key: string]: string } = {
   '/': 'LocNot',
@@ -25,6 +27,14 @@ const createLinks: { [key: string]: string } = {
 const Main = ({ Component, pageProps, router }: AppPropsType) => {
   const [isOpen, setIsOpen] = useState(false);
   const [pageTitle, setPageTitle] = useState(paths[router.pathname]);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if ('geolocation' in navigator) {
+      dispatch(getLocation());
+    }
+  }, []);
 
   const toggleMenu = (value: boolean) => {
     setIsOpen(value);

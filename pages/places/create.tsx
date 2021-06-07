@@ -16,7 +16,14 @@ const steps = ['Select on map', 'Add content', 'Invite people', 'Choose time'];
 const CreatePlace = () => {
   const router = useRouter();
   const place = useSelector<RootState, Place>((state) => state.place.newPlace);
+  const location = useSelector<RootState, Location | null>((state) => state.location.data);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (location) {
+      dispatch(setPlace({ ...place, location }));
+    }
+  }, [location]);
 
   const onMapClick = (data: Location) => {
     dispatch(setPlace({ ...place, location: { lat: data.lat, lng: data.lng } }));

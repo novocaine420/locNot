@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -17,7 +17,14 @@ const steps = ['Select on map', 'Add details', 'Take a picture', 'Choose time'];
 const CreateReminder = () => {
   const router = useRouter();
   const reminder = useSelector<RootState, Reminder>((state) => state.reminders.data);
+  const location = useSelector<RootState, Location | null>((state) => state.location.data);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (location) {
+      dispatch(setReminder({ ...reminder, location }));
+    }
+  }, [location]);
 
   const onMapClick = (data: Location) => {
     dispatch(setReminder({ ...reminder, location: { lat: data.lat, lng: data.lng } }));

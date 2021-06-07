@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import { PlacesState, PlaceState, RemindersState } from './types';
+import { LocationState, PlacesState, PlaceState, RemindersState } from './types';
 
 const currentDate = moment().format('YYYY-MM-DD[T]HH:mm:ss');
 
@@ -9,10 +9,7 @@ export const initialRemindersState: RemindersState = {
   data: {
     title: '',
     message: '',
-    location: {
-      lat: 49.84444811135912,
-      lng: 24.026233897782312
-    },
+    location: undefined,
     date: currentDate,
     picture: ''
   },
@@ -30,15 +27,17 @@ export const initialPlaceState: PlaceState = {
   data: {},
   newPlace: {
     name: '',
-    location: {
-      lat: 49.84444811135912,
-      lng: 24.026233897782312
-    },
+    location: undefined,
     content: [],
     date: currentDate,
     message: '',
     peoples: ''
   },
   loading: false,
+  error: null
+};
+
+export const initialLocationState: LocationState = {
+  data: null,
   error: null
 };

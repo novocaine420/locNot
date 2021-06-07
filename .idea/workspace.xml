@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2488fdf4-06bb-4e1c-9d0b-a105b3b142e9" name="Default Changelist" comment="">
+    <list default="true" id="2488fdf4-06bb-4e1c-9d0b-a105b3b142e9" name="Default Changelist" comment="feat: get current location">
+      <change afterPath="$PROJECT_DIR$/client/components/google-map/styles.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/isomorphic/store/location.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/google-map/google-map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/google-map/google-map.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/main/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/main/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/initial-states.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/initial-states.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/places/create.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/places/create.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/reminders/create.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/reminders/create.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,9 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -107,7 +115,7 @@
       <workItem from="1620912280051" duration="46851000" />
       <workItem from="1621427465585" duration="11505000" />
       <workItem from="1621524398738" duration="47868000" />
-      <workItem from="1622557066128" duration="45332000" />
+      <workItem from="1622557066128" duration="53727000" />
     </task>
     <task id="LOCAL-00001" summary="feat: configured environment">
       <created>1620156478019</created>
@@ -207,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622985655043</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="feat: get notification permissions on first load">
+      <created>1622989350603</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1622989350603</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +253,9 @@
     <MESSAGE value="feat: add fallback page, use REST to fetch reminders" />
     <MESSAGE value="feat: refactor reminders, change http method for adding reminder" />
     <MESSAGE value="feat: add notification api &amp; custom service-worker" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add notification api &amp; custom service-worker" />
+    <MESSAGE value="feat: get notification permissions on first load" />
+    <MESSAGE value="feat: get current location" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: get current location" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

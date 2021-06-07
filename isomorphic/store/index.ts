@@ -6,11 +6,13 @@ import { RootState } from '@isomorphic/store/types';
 import { placesReducer } from '@isomorphic/store/places';
 import { placeReducer } from '@isomorphic/store/place';
 import { remindersReducer } from '@isomorphic/store/reminders';
+import { locationReducer } from '@isomorphic/store/location';
 
 const rootReducer = combineReducers<RootState>({
   places: placesReducer,
   place: placeReducer,
-  reminders: remindersReducer
+  reminders: remindersReducer,
+  location: locationReducer
 });
 
 export default function configureStore(preloadedState: RootState) {

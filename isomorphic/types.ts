@@ -6,7 +6,7 @@ export type Location = {
 export type Reminder = {
   id?: string;
   title: string;
-  location: Location;
+  location: Location | undefined;
   picture: string;
   date: string;
   message: string;
@@ -15,7 +15,7 @@ export type Reminder = {
 export type Place = {
   id?: string;
   name: string;
-  location: Location;
+  location: Location | undefined;
   content: string[];
   date: string;
   message: string;
