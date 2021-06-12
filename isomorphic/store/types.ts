@@ -1,7 +1,8 @@
-import { Place } from '../types';
+import { Place, Reminder, Location } from '../types';
 
-export type PlacesState = {
-  data: any;
+export type RemindersState = {
+  list: Reminder[];
+  data: Reminder;
   loading: boolean;
   error: null;
 };
@@ -13,7 +14,20 @@ export type PlaceState = {
   error: null;
 };
 
+export type PlacesState = {
+  data: Place[];
+  loading: boolean;
+  error: null;
+};
+
+export type LocationState = {
+  data: Location | null;
+  error: null;
+};
+
 export type RootState = {
   place: PlaceState;
   places: PlacesState;
+  reminders: RemindersState;
+  location: LocationState;
 };

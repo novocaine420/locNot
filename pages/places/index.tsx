@@ -51,7 +51,12 @@ const Index = () => {
   };
 
   const tabsData = useMemo(() => {
-    const list = places.map((place) => ({ ...place, title: place.name, description: 'description' }));
+    const list = places.map((place) => ({
+      ...place,
+      title: place.name,
+      description: 'description',
+      picture: place.content[0]
+    }));
     return tabs.map((item) => ({
       ...item,
       content: <List list={list} onItemOpen={onPlaceOpen} onItemDelete={onPlaceDelete} />

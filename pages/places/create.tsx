@@ -6,10 +6,9 @@ import StepProgressBar from '@client/components/step-progress-bar/step-progress-
 import GoogleMap from '@client/components/google-map/google-map';
 import { RootState } from '@isomorphic/store/types';
 import { Location, Place } from '@isomorphic/types';
-import { setPlace } from '@isomorphic/store/place';
+import { setPlace, addPlace } from '@isomorphic/store/place';
 import TextInput from '@client/components/text-input/text-input';
 import DateAndTimePicker from '@client/components/date-picker/date-picker';
-import { addPlace } from '@isomorphic/store/place';
 import AddPictureBlock from '@client/components/add-picture-block/add-picture-block';
 
 const steps = ['Select on map', 'Add content', 'Invite people', 'Choose time'];
@@ -17,7 +16,14 @@ const steps = ['Select on map', 'Add content', 'Invite people', 'Choose time'];
 const CreatePlace = () => {
   const router = useRouter();
   const place = useSelector<RootState, Place>((state) => state.place.newPlace);
+  const location = useSelector<RootState, Location | null>((state) => state.location.data);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (location) {
+      dispatch(setPlace({ ...place, location }));
+    }
+  }, [location]);
 
   const onMapClick = (data: Location) => {
     dispatch(setPlace({ ...place, location: { lat: data.lat, lng: data.lng } }));
@@ -67,7 +73,7 @@ const CreatePlace = () => {
       case 3:
         return (
           <div>
-            <DateAndTimePicker onChange={onTextChange('date')} />
+            <DateAndTimePicker value={place.date} onChange={onTextChange('date')} />
           </div>
         );
       default:

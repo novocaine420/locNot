@@ -3,4 +3,11 @@
   .media {
     height: 140px;
   }
+  .placeCardContent {
+    display: flex;
+    justify-content: space-between;
+    .date {
+      color: #ccc;
+    }
+  }
 }

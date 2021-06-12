@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "vapid": "web-push generate-vapid-keys"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
@@ -16,6 +17,7 @@
     "idb": "^6.1.1",
     "lodash": "^4.17.21",
     "material-ui-dropzone": "^3.5.0",
+    "moment": "^2.29.1",
     "next": "latest",
     "next-pwa": "^5.2.21",
     "react": "^17.0.2",
@@ -26,7 +28,8 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
     "sass": "^1.32.13",
-    "tslib": "^2.2.0"
+    "tslib": "^2.2.0",
+    "web-push": "^3.4.4"
   },
   "license": "MIT",
   "devDependencies": {

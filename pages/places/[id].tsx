@@ -2,25 +2,32 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { GetServerSideProps } from 'next';
 import { useDispatch, useSelector } from 'react-redux';
 
-import styles from './styles.module.scss';
 import { RootState } from '@isomorphic/store/types';
 import { Place } from '@isomorphic/types';
 import GoogleMap from '@client/components/google-map/google-map';
 import ContentBlock from '@client/components/content-block/content-block';
 import Tabs from '@client/components/tabs/tabs';
 import { fetchPlace } from '@isomorphic/store/place';
+import styles from './styles.module.scss';
 
-type PlaceProps = { id: string };
+type PlaceProps = { id: string; setPageTitle: (title: string) => void };
 
-const Index = ({ id }: PlaceProps) => {
+const Index = ({ id, setPageTitle }: PlaceProps) => {
   const [tabIndex, setTabIndex] = useState(0);
   const place = useSelector<RootState, Place>((state) => state.place.data);
+  const placeName = place.name;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPlace(id));
   }, []);
+
+  useEffect(() => {
+    if (placeName) {
+      setPageTitle(placeName);
+    }
+  }, [placeName]);
 
   const onTabChange = (idx: number) => {
     setTabIndex(idx);

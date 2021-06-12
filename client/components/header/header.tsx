@@ -23,6 +23,7 @@ interface Props {
 type HeaderProps = {
   title: string;
   onMenuOpen: (open: boolean) => void;
+  linkToCreate: string;
 };
 
 function HideOnScroll(props: Props) {
@@ -39,7 +40,7 @@ function HideOnScroll(props: Props) {
   );
 }
 
-export default function Header({ title, onMenuOpen }: HeaderProps) {
+export default function Header({ title, onMenuOpen, linkToCreate }: HeaderProps) {
   return (
     <div className={styles.header}>
       <HideOnScroll>
@@ -57,19 +58,21 @@ export default function Header({ title, onMenuOpen }: HeaderProps) {
             <Typography variant="h6" className={styles.title}>
               {title}
             </Typography>
-            <Link href="/places/create">
-              <a>
-                <IconButton
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={() => null}
-                  color="inherit"
-                >
-                  <AddIcon />
-                </IconButton>
-              </a>
-            </Link>
+            {linkToCreate && (
+              <Link href={linkToCreate}>
+                <a>
+                  <IconButton
+                    aria-label="account of current user"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    onClick={() => null}
+                    color="inherit"
+                  >
+                    <AddIcon />
+                  </IconButton>
+                </a>
+              </Link>
+            )}
           </Toolbar>
         </AppBar>
       </HideOnScroll>

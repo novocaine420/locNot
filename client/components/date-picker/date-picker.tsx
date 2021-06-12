@@ -4,10 +4,11 @@ import TextField from '@material-ui/core/TextField';
 import styles from './styles.module.scss';
 
 type DateAndTimePickerProps = {
+  value: string;
   onChange: (value: string) => void;
 };
 
-export default function DateAndTimePicker({ onChange }: DateAndTimePickerProps) {
+export default function DateAndTimePicker({ value, onChange }: DateAndTimePickerProps) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value);
   };
@@ -18,7 +19,8 @@ export default function DateAndTimePicker({ onChange }: DateAndTimePickerProps) 
         id="datetime-local"
         label="Next appointment"
         type="datetime-local"
-        defaultValue="2017-05-24T10:30"
+        defaultValue="2021-01-01T12:00"
+        value={value}
         className={styles.textField}
         InputLabelProps={{
           shrink: true
