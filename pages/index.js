@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+import { createTable, createReminder, deleteTable, getItems, readItem } from '../helpers/aws-api';
 import styles from '../styles/Home.module.css';
 
 const base64ToUint8Array = (base64) => {
@@ -92,6 +93,16 @@ export default function Home() {
     }
   };
 
+  // const getS3Buckets = () => {
+  //   s3.listBuckets((err, data) => {
+  //     if (err) {
+  //       console.log('Error', err);
+  //     } else {
+  //       console.log('Success', data.Buckets);
+  //     }
+  //   });
+  // };
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -113,6 +124,12 @@ export default function Home() {
           <button onClick={sendNotificationButtonOnClick} disabled={!isSubscribed}>
             Send Notification
           </button>
+          <button onClick={createTable}>Create table</button>
+          <button onClick={deleteTable}>Delete table</button>
+          <button onClick={createReminder}>Create reminder</button>
+          <button onClick={getItems}>Get items</button>
+          <button onClick={readItem}>Read item</button>
+          {/*<button onClick={getS3Buckets}>Get S3 bucket</button>*/}
         </div>
 
         <div className={styles.grid}>

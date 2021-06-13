@@ -41,7 +41,7 @@ export default function PlaceCard({
     },
     {
       title: 'Content',
-      content: <ContentBlock images={content} message={message} />
+      content: <ContentBlock imageSrc={content[0]} message={message} />
     },
     {
       title: 'People',

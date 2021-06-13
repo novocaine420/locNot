@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import styles from './styles.module.scss';
 
 type DateAndTimePickerProps = {
-  value: string;
+  value: Date;
   onChange: (value: string) => void;
 };
 

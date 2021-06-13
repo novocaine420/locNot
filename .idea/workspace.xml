@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2488fdf4-06bb-4e1c-9d0b-a105b3b142e9" name="Default Changelist" comment="">
+    <list default="true" id="2488fdf4-06bb-4e1c-9d0b-a105b3b142e9" name="Default Changelist" comment="feat: use dynamodb and s3 for saving reminders, add server routes, refactor">
+      <change afterPath="$PROJECT_DIR$/helpers/aws-api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helpers/file-utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helpers/s3.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/images/[id].ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/reminders/[id].ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/reminders/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/hello.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/notification.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/content-block/content-block.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/content-block/content-block.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/date-picker/date-picker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/date-picker/date-picker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/place-card/place-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/place-card/place-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/firebase-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/firebase-api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isomorphic/store/reminders.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/reminders.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/reminders/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/reminders/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +84,8 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/api/images" />
+      <recent name="$PROJECT_DIR$/pages/api/reminders" />
       <recent name="$PROJECT_DIR$/isomorphic" />
     </key>
   </component>
@@ -80,6 +95,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.scratch.es6" />
         <item itemvalue="Node.js.scratch.es6" />
       </list>
     </recent_temporary>
@@ -108,7 +124,7 @@
       <workItem from="1621427465585" duration="11505000" />
       <workItem from="1621524398738" duration="47868000" />
       <workItem from="1622557066128" duration="54702000" />
-      <workItem from="1623075140405" duration="579000" />
+      <workItem from="1623075140405" duration="54546000" />
     </task>
     <task id="LOCAL-00001" summary="feat: configured environment">
       <created>1620156478019</created>
@@ -222,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623057200216</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="refactor: rename file, add types, remove unneeded file">
+      <created>1623076073053</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1623076073053</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,7 +279,8 @@
     <MESSAGE value="feat: get notification permissions on first load" />
     <MESSAGE value="feat: get current location" />
     <MESSAGE value="feat: get current location, add marker" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: get current location, add marker" />
+    <MESSAGE value="refactor: rename file, add types, remove unneeded file" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: rename file, add types, remove unneeded file" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
