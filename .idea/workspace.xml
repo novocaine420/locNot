@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/helpers/s3.ts" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/s3.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/api/reminders/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/reminders/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/places/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/places/[id].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/integrate.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
