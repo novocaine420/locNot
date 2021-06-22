@@ -1,6 +1,7 @@
 import S3 from 'aws-sdk/clients/s3';
 import fs from 'fs';
 import { File } from 'formidable';
+import uniqid from 'uniqid';
 
 export const s3 = new S3({
   region: process.env.AWS_REGION,
@@ -17,7 +18,7 @@ export const uploadFileToS3 = (file: File) => {
     console.log('File Error', err);
   });
 
-  const uploadParams = { Bucket: bucketName, Key: file.name, Body: fileStream };
+  const uploadParams = { Bucket: bucketName, Key: file.name || uniqid(), Body: fileStream };
 
   return s3.upload(uploadParams).promise();
 };

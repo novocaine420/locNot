@@ -33,15 +33,15 @@ const Index = ({ id, setPageTitle }: PlaceProps) => {
     setTabIndex(idx);
   };
 
-  const tabs = useMemo(() => {
-    return [
+  const tabs = useMemo(
+    () => [
       {
         title: 'Info',
         content: <GoogleMap location={place?.location} />
       },
       {
         title: 'Content',
-        content: <ContentBlock images={place?.content} message={place?.message} />
+        content: <ContentBlock imageSrc={place?.content[0]} message={place?.message} />
       },
       {
         title: 'People',
@@ -51,8 +51,9 @@ const Index = ({ id, setPageTitle }: PlaceProps) => {
         title: 'Notifications',
         content: <div>Content Four</div>
       }
-    ];
-  }, [place]);
+    ],
+    [place]
+  );
 
   return (
     <div className={styles.place}>

@@ -53,17 +53,21 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
             if (!Array.isArray(file)) {
               uploadFileToS3(file)
-                ?.then((data) => unlinkFile(file.path).then(() => data.Location))
-                .then((link) =>
+                .then((data) => unlinkFile(file.path).then(() => data.Location))
+                .then((link) => {
+                  const title = Array.isArray(fields.title) ? fields.title[0] : fields.title;
+                  const message = Array.isArray(fields.message) ? fields.message[0] : fields.message;
+                  const date = Array.isArray(fields.date) ? fields.date[0] : fields.date;
+                  const location = Array.isArray(fields.location) ? fields.location[0] : fields.location;
                   resolve({
                     id,
-                    title: fields.title,
-                    message: fields.message,
-                    date: fields.date,
-                    location: JSON.parse(fields.location),
+                    title,
+                    message,
+                    date,
+                    location: JSON.parse(location),
                     picture: link
-                  })
-                );
+                  });
+                });
             }
           });
         });

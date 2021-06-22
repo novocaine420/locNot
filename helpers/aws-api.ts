@@ -1,6 +1,12 @@
 import AWS from 'aws-sdk';
 import uniqid from 'uniqid';
 
+declare module 'aws-sdk/lib/config-base' {
+  interface ConfigurationOptions {
+    endpoint: string;
+  }
+}
+
 AWS.config.update({
   region: process.env.AWS_REGION,
   s3BucketEndpoint: false,
