@@ -2,6 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2488fdf4-06bb-4e1c-9d0b-a105b3b142e9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/date-picker/date-picker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/date-picker/date-picker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/aws-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/aws-api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/s3.ts" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/s3.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/reminders/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/reminders/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/places/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/places/[id].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/integrate.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/integrate.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/integrate.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -70,6 +77,8 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/api/images" />
+      <recent name="$PROJECT_DIR$/pages/api/reminders" />
       <recent name="$PROJECT_DIR$/isomorphic" />
     </key>
   </component>
@@ -79,6 +88,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.scratch.es6" />
         <item itemvalue="Node.js.scratch.es6" />
       </list>
     </recent_temporary>
@@ -107,7 +117,8 @@
       <workItem from="1621427465585" duration="11505000" />
       <workItem from="1621524398738" duration="47868000" />
       <workItem from="1622557066128" duration="54702000" />
-      <workItem from="1623075140405" duration="579000" />
+      <workItem from="1623075140405" duration="54546000" />
+      <workItem from="1624278700404" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="feat: configured environment">
       <created>1620156478019</created>
@@ -221,7 +232,21 @@
       <option name="project" value="LOCAL" />
       <updated>1623057200216</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="refactor: rename file, add types, remove unneeded file">
+      <created>1623076073053</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1623076073053</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: use dynamodb and s3 for saving reminders, add server routes, refactor">
+      <created>1623594289930</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1623594289930</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +280,9 @@
     <MESSAGE value="feat: get notification permissions on first load" />
     <MESSAGE value="feat: get current location" />
     <MESSAGE value="feat: get current location, add marker" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: get current location, add marker" />
+    <MESSAGE value="refactor: rename file, add types, remove unneeded file" />
+    <MESSAGE value="feat: use dynamodb and s3 for saving reminders, add server routes, refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: use dynamodb and s3 for saving reminders, add server routes, refactor" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

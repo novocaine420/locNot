@@ -29,7 +29,7 @@ const Index = ({ id, setPageTitle }: PlaceProps) => {
   return (
     <div className={styles.reminder}>
       <GoogleMap location={reminder?.location} />
-      <ContentBlock images={[reminder?.picture]} message={reminder?.message} />
+      <ContentBlock imageSrc={reminder?.picture} message={reminder?.message} />
     </div>
   );
 };
