@@ -11,7 +11,7 @@ AWS.config.update({
   region: process.env.AWS_REGION,
   s3BucketEndpoint: false,
   // The endpoint should point to the local or remote computer where DynamoDB (downloadable) is running.
-  endpoint: 'http://localhost:8000',
+  endpoint: 'http://dynamodb.eu-central-1.amazonaws.com',
   /*
       accessKeyId and secretAccessKey defaults can be used while using the downloadable version of DynamoDB. 
       For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.

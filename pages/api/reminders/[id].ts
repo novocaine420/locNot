@@ -8,7 +8,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
   switch (req.method) {
     case 'GET': {
       const params = {
-        TableName: 'Reminders',
+        TableName: 'reminders',
         Key: {
           id
         }
@@ -26,7 +26,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     }
     case 'DELETE': {
       const params = {
-        TableName: 'Reminders',
+        TableName: 'reminders',
         ReturnValues: 'ALL_OLD',
         Key: {
           id

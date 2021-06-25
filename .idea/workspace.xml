@@ -3,14 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2488fdf4-06bb-4e1c-9d0b-a105b3b142e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/date-picker/date-picker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/date-picker/date-picker.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helpers/aws-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/aws-api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/s3.ts" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/s3.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/reminders/[id].ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/reminders/[id].ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/api/reminders/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/reminders/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/places/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/places/[id].tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/integrate.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/integrate.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/integrate.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/use_aws_services" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -88,6 +83,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.scratch.es6" />
         <item itemvalue="Node.js.scratch.es6" />
         <item itemvalue="Node.js.scratch.es6" />
       </list>
