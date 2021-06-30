@@ -115,3 +115,24 @@ export const deleteTable = () => {
     }
   });
 };
+
+export const truncateTable = async (tableName: string) => {
+  const rows = await dynamodb
+    .scan({
+      TableName: tableName,
+      AttributesToGet: ['id']
+    })
+    .promise();
+
+  const items = rows.Items || [];
+
+  console.log(`Deleting ${items.length} records`);
+  items.forEach(async (element) => {
+    await dynamodb
+      .deleteItem({
+        TableName: tableName,
+        Key: element
+      })
+      .promise();
+  });
+};

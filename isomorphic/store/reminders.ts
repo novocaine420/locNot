@@ -2,10 +2,11 @@ import { Dispatch } from 'redux';
 import { NextRouter } from 'next/router';
 import uniqid from 'uniqid';
 
-import { RemindersState } from './types';
+import { RemindersState, RootState } from './types';
 import { initialRemindersState } from './initial-states';
 import { Reminder } from '@isomorphic/types';
 import { dataURItoBlob } from '../../helpers/file-utils';
+import { sendNotification } from '../../helpers/notifications';
 
 const REMINDERS_LOADED = 'reminders/loaded';
 const REMINDERS_START_FETCHING = 'reminders/startFetching';
@@ -89,7 +90,10 @@ export const setReminder = (data: Reminder) => ({
   payload: data
 });
 
-export const addReminder = (reminder: Reminder, router: NextRouter) => async (dispatch: Dispatch) => {
+export const addReminder = (reminder: Reminder, router: NextRouter) => async (
+  dispatch: Dispatch,
+  getState: () => RootState
+) => {
   dispatch({ type: REMINDERS_START_FETCHING });
 
   const { blob } = dataURItoBlob(reminder.picture);
@@ -101,28 +105,36 @@ export const addReminder = (reminder: Reminder, router: NextRouter) => async (di
   newReminder.append('location', JSON.stringify(reminder.location));
   newReminder.append('file', blob, uniqid());
 
-  await fetch(`/api/reminders`, {
-    method: 'POST',
-    body: newReminder
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      dispatch({
-        type: ADD_REMINDER,
-        payload: {
-          data
-        }
-      });
-      router.push(`/reminders/${data.id}`);
+  try {
+    await fetch(`/api/reminders`, {
+      method: 'POST',
+      body: newReminder
     })
-    .catch((err) => {
-      dispatch({
-        type: REMINDERS_SET_ERROR,
-        payload: {
-          err
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({
+          type: ADD_REMINDER,
+          payload: {
+            data
+          }
+        });
+        const subscription = getState().subscription.data;
+        if (subscription) {
+          sendNotification(subscription, { message: 'New reminder created' });
         }
+        router.push(`/reminders/${data.id}`);
+      })
+      .catch((err) => {
+        dispatch({
+          type: REMINDERS_SET_ERROR,
+          payload: {
+            err
+          }
+        });
       });
-    });
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export const deleteReminder = (id: string) => async (dispatch: Dispatch) => {
