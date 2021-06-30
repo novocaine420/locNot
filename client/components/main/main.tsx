@@ -45,30 +45,34 @@ const Main = ({ Component, pageProps, router }: AppPropsType) => {
     }
     if (typeof window !== 'undefined' && 'serviceWorker' in navigator && window.workbox !== undefined) {
       // run only in browser
-      navigator.serviceWorker.ready.then((reg) => {
-        reg.pushManager.getSubscription().then((sub: PushSubscription | null) => {
-          if (sub && !(sub.expirationTime && Date.now() > sub.expirationTime - 5 * 60 * 1000)) {
-            console.log('inside getSubscription', sub);
-            dispatch(setSubscription(sub));
-          }
+      navigator.serviceWorker.ready
+        .then((reg) => {
+          reg.pushManager.getSubscription().then((sub: PushSubscription | null) => {
+            if (sub && !(sub.expirationTime && Date.now() > sub.expirationTime - 5 * 60 * 1000)) {
+              console.log('inside getSubscription', sub);
+              dispatch(setSubscription(sub));
+            }
+          });
+          setRegistration(reg);
+          return askForNotificationPermission(reg).then((sub) => {
+            if (sub) {
+              dispatch(addSubscription(sub));
+            }
+          });
+        })
+        .catch((err) => {
+          console.error(err);
         });
-        setRegistration(reg);
-        askForNotificationPermission(reg).catch((err) => console.error(err));
-      });
     }
   }, []);
 
   const onSubscribe = async (event: Event) => {
-    event?.preventDefault();
-    try {
-      if (registration) {
-        const sub = await askForNotificationPermission(registration);
+    if (registration) {
+      await askForNotificationPermission(registration).then((sub) => {
         if (sub) {
           dispatch(addSubscription(sub));
         }
-      }
-    } catch (err) {
-      console.error(err);
+      });
     }
   };
 

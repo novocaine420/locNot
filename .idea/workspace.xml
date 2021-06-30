@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2488fdf4-06bb-4e1c-9d0b-a105b3b142e9" name="Default Changelist" comment="feat: refactor, add method for clearing db, send notification on post create">
-      <change afterPath="$PROJECT_DIR$/client/constants.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helpers/encryption.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helpers/notifications.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/drawer/drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/drawer/drawer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/aws-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/aws-api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/isomorphic/store/reminders.ts" beforeDir="false" afterPath="$PROJECT_DIR$/isomorphic/store/reminders.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/main/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/main/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/notifications.ts" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/notifications.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/subscriptions/[id].ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/settings/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/settings/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/settings/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/settings/styles.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +118,7 @@
       <workItem from="1622557066128" duration="54702000" />
       <workItem from="1623075140405" duration="54546000" />
       <workItem from="1624278700404" duration="302000" />
-      <workItem from="1624973509347" duration="23581000" />
+      <workItem from="1624973509347" duration="26388000" />
     </task>
     <task id="LOCAL-00001" summary="feat: configured environment">
       <created>1620156478019</created>
@@ -268,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625062866931</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="feat: refactor, add method for clearing db, send notification on post create">
+      <created>1625062975954</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1625062975954</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
