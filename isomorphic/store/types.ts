@@ -25,9 +25,15 @@ export type LocationState = {
   error: null;
 };
 
+export type SubscriptionState = {
+  data: PushSubscription | null;
+  error: null;
+};
+
 export type RootState = {
   place: PlaceState;
   places: PlacesState;
   reminders: RemindersState;
   location: LocationState;
+  subscription: SubscriptionState;
 };
