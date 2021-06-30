@@ -10,10 +10,10 @@ webPush.setVapidDetails(
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
-    const { subscription, message } = req.body;
+    const { subscription, data } = req.body;
 
     webPush
-      .sendNotification(subscription, JSON.stringify({ title: 'LocNot', message }))
+      .sendNotification(subscription, JSON.stringify({ title: 'LocNot', message: data.message }))
       .then((response: any) => {
         res.writeHead(response.statusCode, response.headers).end(response.body);
       })

@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import { LocationState, PlacesState, PlaceState, RemindersState } from './types';
+import { LocationState, PlacesState, PlaceState, RemindersState, SubscriptionState } from './types';
 
 const currentDate = moment().format('YYYY-MM-DD[T]HH:mm:ss');
 
@@ -38,6 +38,11 @@ export const initialPlaceState: PlaceState = {
 };
 
 export const initialLocationState: LocationState = {
+  data: null,
+  error: null
+};
+
+export const initialSubscriptionState: SubscriptionState = {
   data: null,
   error: null
 };

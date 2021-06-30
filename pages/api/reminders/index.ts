@@ -20,7 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   switch (req.method) {
     case 'GET': {
       const params = {
-        TableName: 'Reminders',
+        TableName: 'reminders',
         ProjectionExpression: '#id, title, message, #loc, #date, picture',
         ExpressionAttributeNames: {
           '#id': 'id',
@@ -73,7 +73,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         });
 
         const params = {
-          TableName: 'Reminders',
+          TableName: 'reminders',
           Item: newReminder
         };
 

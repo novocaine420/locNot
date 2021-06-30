@@ -145,11 +145,43 @@ setCatchHandler(({ event }) => {
 });
 
 self.addEventListener('push', function (event) {
-  const data = JSON.parse(event.data.text());
-  event.waitUntil(
-    self.registration.showNotification(data.title, {
-      body: data.message,
-      icon: '/icons/icon-192x192.png'
-    })
-  );
+  let data = {
+    title: 'New!',
+    message: 'Something new happened!'
+  };
+
+  if (event.data) {
+    data = JSON.parse(event.data.text());
+  }
+  const options = {
+    body: data.message,
+    icon: '/icons/icon-96x96.png',
+    image: '/icons/icon-96x96.png',
+    dir: 'ltr',
+    lang: 'en-US',
+    vibrate: [100, 50, 200],
+    badge: '/icons/icon-96x96.png',
+    tag: 'confirm-notification',
+    renotify: true,
+    actions: [
+      { action: 'confirm', title: 'OK', icon: '/icons/icon-96x96.png' },
+      { action: 'cancel', title: 'Cancel', icon: '/icons/icon-96x96.png' }
+    ]
+  };
+  event.waitUntil(self.registration.showNotification(data.title, options));
+});
+
+self.addEventListener('notificationclick', function (event) {
+  const { notification, action } = event;
+  if (action === 'confirm') {
+    console.log('Confirm');
+    notification.close();
+  } else {
+    console.log(action);
+    notification.close();
+  }
+});
+
+self.addEventListener('notificationclose', function (event) {
+  console.log('Notification was closed');
 });

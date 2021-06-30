@@ -11,7 +11,7 @@ AWS.config.update({
   region: process.env.AWS_REGION,
   s3BucketEndpoint: false,
   // The endpoint should point to the local or remote computer where DynamoDB (downloadable) is running.
-  endpoint: 'http://localhost:8000',
+  endpoint: 'http://dynamodb.eu-central-1.amazonaws.com',
   /*
       accessKeyId and secretAccessKey defaults can be used while using the downloadable version of DynamoDB. 
       For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
@@ -113,5 +113,26 @@ export const deleteTable = () => {
     } else {
       console.log(data);
     }
+  });
+};
+
+export const truncateTable = async (tableName: string) => {
+  const rows = await dynamodb
+    .scan({
+      TableName: tableName,
+      AttributesToGet: ['id']
+    })
+    .promise();
+
+  const items = rows.Items || [];
+
+  console.log(`Deleting ${items.length} records`);
+  items.forEach(async (element) => {
+    await dynamodb
+      .deleteItem({
+        TableName: tableName,
+        Key: element
+      })
+      .promise();
   });
 };
